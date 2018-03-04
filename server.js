@@ -5,7 +5,9 @@ var express = require('express'),
     engines = require('consolidate'),
     // express middleware for uploading files
     multer  = require('multer'),
-    upload = multer({ dest: 'uploads/' });
+    upload = multer({ dest: 'uploads/' }),
+    // file systems module
+    fs = require('fs');
 
 // setup app configuration
 var appConfig = function(app) {
@@ -22,7 +24,7 @@ var appConfig = function(app) {
 }(app);
 
 // import routejs module
-var routes = require('./public/scripts/routes.js')(app, upload);
+var routes = require('./public/scripts/routes.js')(app, upload, fs);
 
 // set up heroku env PORT || local
 var port = process.env.PORT || 27017;
