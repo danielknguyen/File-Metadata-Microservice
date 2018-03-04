@@ -1,0 +1,16 @@
+{% extends "template.html" %}
+
+{% block header %}
+
+{% endblock %}
+
+{% block content %}
+  <form action="/get-file-size" method="post" enctype="multipart/form-data">
+    <div>
+      <label for="file">Submit a file to view its filesize.</label>
+      <br><br>
+      <input type="file" id="file" name="file" multiple>
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+{% endblock %}
